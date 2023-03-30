@@ -1,0 +1,35 @@
+{% extends 'basic.html' %}
+{% load static %}
+{% block title%} Stock Picker {% endblock title%}
+{% block css %}{% endblock css%}
+{% block body %}
+<div class="container">
+    <div class="row my-3">
+        <div class="col-sm-6 offset-sm-3">
+            <h3 style="color: aliceblue;">Login🔐</h3>
+            <hr>
+            <form  method="post" novalidate class="shadow rounded p-5" style="background-color:rgba(206, 218, 235, 0.489);">
+                {% for fm in form %}
+                <div class="form-group mb-3">
+                    {{fm.label_tag}} {{fm}}
+                    <small class="text-danger">{{fm.errors|striptags}}</small>
+                </div>
+                {% endfor %}
+                <br>
+                <input type="submit" class="btn btn-primary mt-4" value="Login">
+                <br>
+                <div class="text-center text-primary fw-bold"><small>New to Stockify ? <a
+                            href="{% url 'registration' %}" class="text-danger">Create an Account</a> </small>
+                </div>
+                {% if form.non_field_errors %}
+                {% for error in form.non_field_errors %}
+                <p class="alert alert-danger my-3">{{error}}</p>
+                {% endfor %}
+                {% endif %}
+                {% csrf_token %}
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock body %}
+{% block script%} {% endblock script%}

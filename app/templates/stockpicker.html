@@ -1,0 +1,25 @@
+{% extends 'basic.html' %}
+{% load static %}
+{% block title%} Stock Picker {% endblock title%}
+{% block css %}{% endblock css%}
+{% block body %}
+
+<div class="container w-50 rounded" style="color:rgb(94, 160, 160);">
+    <h2 class="mt-3 text-center"><u> Stock Picker </u></h2>
+    <form action="/stocktracker">
+        <label for="stockpicker">Select the stocks for your watchlist:</label>
+
+        <select class="form-select text-center" size="15" multiple aria-label="multiple select example"
+            name="stockpicker" style="color:darkblue;  background-color:rgba(224, 231, 239, 0.461);">
+            {% for i in context%}
+            <option class="border-bottom rounded-bottom py-1 bg-gradient" value="{{i}}">{{i}}</option>
+            {% endfor %}
+        </select>
+        <div class="d-grid gap-2">
+            <input class="btn btn-success bg-gradient" type="submit" value="Get Live Data">
+        </div>
+    </form>
+    <p><small> <small>For selecting multiple use: ctrl+click</small> </small></p>
+</div>
+{% endblock body %}
+{% block script%} {% endblock script%}
