@@ -7,7 +7,7 @@ This is a Django project that allows you to track the live stock prices of compa
 
 #### Demo of Webapp: 
 
-
+https://user-images.githubusercontent.com/91488051/229072304-4ec6aedf-2110-4906-9d8d-6b15c2f3bbf9.mp4
 
 
 
@@ -27,9 +27,9 @@ This is a Django project that allows you to track the live stock prices of compa
 ### Clone the repository:
 
 In bash type:
-
-git clone https://github.com/ParthSathwara/Trackitt.git
-
+```
+git clone https://github.com/HaardPatel5620/Stockify.git
+```
 
 ## Running this project
 
@@ -42,48 +42,48 @@ cd Trackitt/
 
 It's advised you create a virtual environment to store your projects dependencies separately. You can install virtualenv with
 
-
+```
 pip install virtualenv
-
+```
 
 After clonig the project open terminal and run the following command in the base directory of this project
 
-
+```
 virtualenv env
-
+```
 
 That will create a new folder `env` in your project directory. Next activate it with this command on mac/linux:
 
-
+```
 source env/bin/active
-
+```
 
 Then install the project dependencies with
 
-
+```
 pip install -r requirements.txt
-
+```
 
 Apply migrations
-
+```
 python manage.py migrate
-
+```
 
 Now you can run the project with this command
 
-
+```
 python manage.py runserver
-
+```
     
 In another terminal, start the Celery worker
-
+```
 celery -A live_stock_tracker worker -l info
-
+```
 
 After that In another terminal, start the Celery beat scheduler
-
+```
 celery -A live_stock_tracker beat -l info
-
+```
 
 
 ## Features
